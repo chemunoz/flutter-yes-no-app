@@ -7,8 +7,17 @@ class ChatScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(Icons.ac_unit),
-        title: const Text('Si-No App'),
+        leading: const Padding(
+          padding: EdgeInsets.all(4.0),
+          child: CircleAvatar(
+            backgroundImage: NetworkImage(
+                'https://info.mercadona.es/img-cont/es/1992-img.jpg'),
+          ),
+        ),
+        title: Row(
+          children: [const Text('Si-No App'), const Icon(Icons.ac_unit)],
+        ),
+        centerTitle: false,
       ),
     );
   }
