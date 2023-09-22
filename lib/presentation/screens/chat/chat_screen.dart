@@ -15,7 +15,7 @@ class ChatScreen extends StatelessWidget {
             ),
           ),
           title: const Row(
-            children: [Text('Decide App'), Icon(Icons.ac_unit)],
+            children: [Text('Chat App'), Icon(Icons.ac_unit)],
           ),
           centerTitle: false,
         ),
