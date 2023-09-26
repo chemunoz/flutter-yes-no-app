@@ -46,6 +46,20 @@ class _ImageBubble extends StatelessWidget {
         width: size.width * 0.7,
         height: 150,
         fit: BoxFit.cover,
+        loadingBuilder: (context, child, loadingProgress) {
+          // 'child' se refiere a la propia imagen
+
+          // Si ya se cargó la imagen, la devolvemos
+          if (loadingProgress == null) return child;
+
+          // Si está cargando vamos a devolver un loading
+          return Container(
+            width: size.width * 0.7,
+            height: 150,
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            child: const Text('Enviando una imagen...'),
+          );
+        },
       ),
     );
   }
