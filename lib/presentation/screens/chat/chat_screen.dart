@@ -29,6 +29,9 @@ class ChatScreen extends StatelessWidget {
 class _ChatView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // 'SafeArea' hace que todo su contenido esté
+    // dentro del área clickable de cada SO
+    // tanto en vertical como horizontal
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),

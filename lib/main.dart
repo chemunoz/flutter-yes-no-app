@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Yes-No App',
         debugShowCheckedModeBanner: false,
+        // La configuración del theme viene del archivo 'app_theme.dart'
         theme: AppTheme(selectedColor: 3).theme(),
         home: const ChatScreen());
   }

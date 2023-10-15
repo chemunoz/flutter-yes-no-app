@@ -22,6 +22,8 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       colorSchemeSeed: _colorThemes[selectedColor],
+      // Modo Oscuro
+      // brightness: Brightness.dark
     );
   }
 }
