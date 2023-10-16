@@ -11,14 +11,13 @@ class MessageFieldBox extends StatelessWidget {
     // Para mantener el foco en el input
     final FocusNode focusNode = FocusNode();
 
-    // Creo el estilo del input en una variable
+    // Creo el estilo del borde del input en una variable
     // para poder aplicarlo en varias propiedades ('enabledBorder' y 'focusedBorder')
     final outlineInputBorder = UnderlineInputBorder(
         borderSide: const BorderSide(color: Colors.transparent),
         borderRadius: BorderRadius.circular(40));
 
-    // Guardamos en una variable toda la decoración
-    // para dejar más limpio el 'TextFormField'
+    // Guardamos en una variable toda la decoración para dejar más limpio el 'TextFormField'
     final inputDecoration = InputDecoration(
         hintText: 'End your message with a "?"',
         enabledBorder: outlineInputBorder,
@@ -45,8 +44,7 @@ class MessageFieldBox extends StatelessWidget {
         // Devolvemos el foco al input
         focusNode.requestFocus();
       },
-      // Cuando clickamos fuera queremos que pierda el foco
-      // y así minimiza el teclado que tenga levantado
+      // Cuando clickamos fuera queremos que pierda el foco y así minimiza el teclado que tenga levantado
       onTapOutside: (event) {
         focusNode.unfocus();
       },
