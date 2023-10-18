@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:yes_no_app/domain/entities/message.dart';
+import 'package:yes_no_app/presentation/providers/chat_provider.dart';
 import 'package:yes_no_app/presentation/widgets/chat/my_message_bubble.dart';
 import 'package:yes_no_app/presentation/widgets/chat/others_message_bubble.dart';
 import 'package:yes_no_app/presentation/widgets/shared/message_field_box.dart';
@@ -29,6 +32,9 @@ class ChatScreen extends StatelessWidget {
 class _ChatView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Indicamos que dejamos observando los cambios del ChatProvider
+    final chatProvider = context.watch<ChatProvider>();
+
     // 'SafeArea' hace que todo su contenido esté
     // dentro del área clickable de cada SO
     // tanto en vertical como horizontal
@@ -39,11 +45,12 @@ class _ChatView extends StatelessWidget {
           children: [
             Expanded(
                 child: ListView.builder(
-              itemCount: 100,
+              itemCount: chatProvider.messages.length,
               itemBuilder: (context, index) {
-                return (index % 2 == 0)
-                    ? const OtherMessageBubble()
-                    : const MyMessageBubble();
+                final message = chatProvider.messages[index];
+                return (message.fromWhom == FromWhom.other)
+                    ? OtherMessageBubble(message: message)
+                    : MyMessageBubble(message: message);
               },
             )),
             // Caja de Texto
